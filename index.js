@@ -43,9 +43,10 @@
   3. Push ke github dengan visibilitas publik
 */
 
-// Homework Week 4 | Number 1
+// Generate default array with 100 values and min value = 0 and max value = 50
 let array = [];
 
+// Push generate value to default array
 for (let i = 0; i < 100; i++) {
   array.push(Math.round(Math.random() * 50));
 }
@@ -54,9 +55,9 @@ console.log("Default generate array: ");
 console.log(array);
 console.log("\n");
 
-// Homework Week 4 | Number 2
-let oddArray = []; // ganjil
-let evenArray = []; // genap
+// Slice the odd and even index from default array
+let oddArray = []; // odd (ganjil)
+let evenArray = []; // even (genap)
 for (let i = 0; i < array.length; i++) {
   if (i % 2 === 0) {
     evenArray.push(array[i]);
@@ -73,13 +74,13 @@ console.log("Even index array from default array: ");
 console.log(evenArray);
 console.log("\n");
 
-// Homework Week 4 - Number 3
+// Find the minimal and maximal values from even odd array and even array
 let minOddArray = 0;
 let maxOddArray = 0;
 let minEvenArray = 0;
 let maxEvenArray = 0;
 const sortingArrayAndGetMaxMinValue = (oddArray, evenArray) => {
-  // Sorting odd array value with bubble short
+  // Sorting odd array value with bubble short (ASCENDING)
   for (let i = 0; i < oddArray.length; i++) {
     for (let j = 0; j < oddArray.length - (i - 1); j++) {
       if (oddArray[j] > oddArray[j + 1]) {
@@ -89,14 +90,16 @@ const sortingArrayAndGetMaxMinValue = (oddArray, evenArray) => {
       }
     }
   }
+  // make the first index of odd array to be minimal value
   minOddArray = oddArray[0];
+  //make the last index of odd array to be maximal value
   maxOddArray = oddArray[oddArray.length - 1];
 
   console.log("Sorting odd array: ");
   console.log(oddArray);
   console.log("\n");
 
-  // Sorting even array value with bubble short
+  // Sorting even array value with bubble short (ASCENDING)
   for (let i = 0; i < evenArray.length; i++) {
     for (let j = 0; j < evenArray.length - i - 1; j++) {
       if (evenArray[j] > evenArray[j + 1]) {
@@ -106,7 +109,9 @@ const sortingArrayAndGetMaxMinValue = (oddArray, evenArray) => {
       }
     }
   }
+  // make the first index of even array to be minimal value
   minEvenArray = evenArray[0];
+  // make the last index of even array to be maximal value
   maxEvenArray = evenArray[evenArray.length - 1];
 
   console.log("Sorting even array: ");
@@ -125,6 +130,7 @@ let sumEvenArray = 0;
 let averageOddArray = 0;
 let averageEvenArray = 0;
 
+// Find the sum and average of odd array values and even array values
 const getArrayTotalAndAverage = (oddArray, evenArray) => {
   for (let i = 0; i < oddArray.length; i++) {
     sumOddArray += oddArray[i];
@@ -146,6 +152,7 @@ console.log(`Average of odd array value = ${averageOddArray}`);
 console.log(`Average of even array value = ${averageEvenArray}`);
 console.log("\n");
 
+// Comparing the minimal value of odd array between minimal value of even array
 const compareMinArrayValue = (minOddArray, minEvenArray) => {
   if (minOddArray < minEvenArray) {
     console.log(
@@ -163,6 +170,7 @@ const compareMinArrayValue = (minOddArray, minEvenArray) => {
 };
 compareMinArrayValue(minOddArray, minEvenArray);
 
+// Comparing the maximal value of odd array between maximal value of even array
 const compareMaxArrayValue = (maxOddArray, maxEvenArray) => {
   if (maxOddArray < maxEvenArray) {
     console.log(
@@ -180,6 +188,7 @@ const compareMaxArrayValue = (maxOddArray, maxEvenArray) => {
 };
 compareMaxArrayValue(maxOddArray, maxEvenArray);
 
+// Comparing the sum of odd array value between sum of even array value
 const compareSumArrayValues = (sumOddArray, sumEvenArray) => {
   if (sumOddArray < sumEvenArray) {
     console.log(
@@ -197,6 +206,7 @@ const compareSumArrayValues = (sumOddArray, sumEvenArray) => {
 };
 compareSumArrayValues(sumOddArray, sumEvenArray);
 
+// Comparing the average of odd array value between average of even array value
 const compareAverageArrayValues = (averageOddArray, averageEvenArray) => {
   if (averageOddArray < averageEvenArray) {
     console.log(
