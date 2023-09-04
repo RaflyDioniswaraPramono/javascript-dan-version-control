@@ -74,24 +74,27 @@ console.log(evenArray);
 console.log("\n");
 
 // Homework Week 4 - Number 3
+let minOddArray = 0;
+let maxOddArray = 0;
+let minEvenArray = 0;
+let maxEvenArray = 0;
 const sortingArrayAndGetMaxMinValue = (oddArray, evenArray) => {
   // Sorting odd array value with bubble short
   for (let i = 0; i < oddArray.length; i++) {
-    for (let j = 0; j < oddArray.length - ( i - 1 ); j++) {
+    for (let j = 0; j < oddArray.length - (i - 1); j++) {
       if (oddArray[j] > oddArray[j + 1]) {
         var swap = oddArray[j];
         oddArray[j] = oddArray[j + 1];
         oddArray[j + 1] = swap;
       }
     }
-  }  
+  }
+  minOddArray = oddArray[0];
+  maxOddArray = oddArray[oddArray.length - 1];
 
   console.log("Sorting odd array: ");
   console.log(oddArray);
-  console.log("Min odd array");
-  console.log(oddArray[0]);
-  console.log("Max odd array");
-  console.log(oddArray[oddArray.length - 1]);
+  console.log("\n");
 
   // Sorting even array value with bubble short
   for (let i = 0; i < evenArray.length; i++) {
@@ -103,12 +106,110 @@ const sortingArrayAndGetMaxMinValue = (oddArray, evenArray) => {
       }
     }
   }
+  minEvenArray = evenArray[0];
+  maxEvenArray = evenArray[evenArray.length - 1];
+
   console.log("Sorting even array: ");
   console.log(evenArray);
-  console.log("Min even array");
-  console.log(evenArray[0]);
-  console.log("Max even array");
-  console.log(evenArray[evenArray.length - 1]);
 };
-
 sortingArrayAndGetMaxMinValue(oddArray, evenArray);
+
+console.log(`Min odd array value = ${minOddArray}`);
+console.log(`Max odd array value = ${maxOddArray}`);
+console.log(`Min even array value = ${minEvenArray}`);
+console.log(`Max even array value = ${maxEvenArray}`);
+console.log("\n");
+
+let sumOddArray = 0;
+let sumEvenArray = 0;
+let averageOddArray = 0;
+let averageEvenArray = 0;
+
+const getArrayTotalAndAverage = (oddArray, evenArray) => {
+  for (let i = 0; i < oddArray.length; i++) {
+    sumOddArray += oddArray[i];
+    averageOddArray = sumOddArray / oddArray.length;
+  }
+
+  for (let i = 0; i < evenArray.length; i++) {
+    sumEvenArray += evenArray[i];
+    averageEvenArray = sumEvenArray / evenArray.length;
+  }
+};
+getArrayTotalAndAverage(oddArray, evenArray);
+
+console.log(`Sum of odd array value =  ${sumOddArray}`);
+console.log(`Sum of even array value = ${sumEvenArray}`);
+console.log("\n");
+
+console.log(`Average of odd array value = ${averageOddArray}`);
+console.log(`Average of even array value = ${averageEvenArray}`);
+console.log("\n");
+
+const compareMinArrayValue = (minOddArray, minEvenArray) => {
+  if (minOddArray < minEvenArray) {
+    console.log(
+      `Result = Minimal odd value less than minimal even value | ${minOddArray} < ${minEvenArray}`
+    );
+  } else if (minOddArray == minEvenArray) {
+    console.log(
+      `Result = Minimal odd value is equal with minimal even value | ${minOddArray} = ${minEvenArray}`
+    );
+  } else {
+    console.log(
+      `Result = Minimal odd value is more than minimal even value | ${minOddArray} > ${minEvenArray}`
+    );
+  }
+};
+compareMinArrayValue(minOddArray, minEvenArray);
+
+const compareMaxArrayValue = (maxOddArray, maxEvenArray) => {
+  if (maxOddArray < maxEvenArray) {
+    console.log(
+      `Result = Maximal odd value less than maximal even value | ${maxOddArray} < ${maxEvenArray}`
+    );
+  } else if (maxOddArray == maxEvenArray) {
+    console.log(
+      `Result = Maximal odd value is equal with maximal even value | ${maxOddArray} = ${maxEvenArray}`
+    );
+  } else {
+    console.log(
+      `Result = Maximal odd value is more than maximal even value | ${maxOddArray} > ${maxEvenArray}`
+    );
+  }
+};
+compareMaxArrayValue(maxOddArray, maxEvenArray);
+
+const compareSumArrayValues = (sumOddArray, sumEvenArray) => {
+  if (sumOddArray < sumEvenArray) {
+    console.log(
+      `Result = Sum odd value less than sum even value | ${sumOddArray} < ${sumEvenArray}`
+    );
+  } else if (sumOddArray == sumEvenArray) {
+    console.log(
+      `Result = Sum odd value is equal with sum even value | ${sumOddArray} = ${sumEvenArray}`
+    );
+  } else {
+    console.log(
+      `Result = Sum odd value more than sum even value | ${sumOddArray} > ${sumEvenArray}`
+    );
+  }
+};
+compareSumArrayValues(sumOddArray, sumEvenArray);
+
+const compareAverageArrayValues = (averageOddArray, averageEvenArray) => {
+  if (averageOddArray < averageEvenArray) {
+    console.log(
+      `Result = Average of odd value less than average even value | ${averageOddArray} < ${averageEvenArray}`
+    );
+  } else if (averageOddArray == averageEvenArray) {
+    console.log(
+      `Result = Average of odd value is equal with average even value | ${averageOddArray} = ${averageEvenArray}`
+    );
+  } else {
+    console.log(
+      `Result = Average of odd value more than average even value | ${averageOddArray} > ${averageEvenArray}`
+    );
+  }
+};
+compareAverageArrayValues(averageOddArray, averageEvenArray);
